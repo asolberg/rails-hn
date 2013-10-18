@@ -1,28 +1,33 @@
-== README
+This is a simple site to demonstrate some concepts in Ruby on Rails and my coding style in general. The functionality is a listing
+submission site not unlike hacker news where people can submit links and then vote
+them up or down. It's simple to use and incorporates some basic bootstrap styling
+and ajax techniqies for instant feedback. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Each user can submit as many links as they want. They can then vote up or down
+anyone elses link including their own although they are allowed only one vote
+per link. The user can change or cancel their votes at any time. 
 
-Things you may want to cover:
+Future support will include:
 
-* Ruby version
+- Commenting
+- User profiles
+- Changing and editing links
 
-* System dependencies
+Some things to note:
 
-* Configuration
+1) The query to list all the links is done in a bit of a manual way. This is
+actually by design because I think its the most efficient way to get
+the information we need with a single query. The query returns a sum of the
+votes for each link as well as the current user's vote for each link so we can
+display that in a meaningful way. I verified with miniprofiler that this brought
+improvements to the query time.
 
-* Database creation
+2) The ajax voting system gracefully degrades to html/post style voting
+in case the user is not using javascript.
 
-* Database initialization
+3) I used bootstrap v. 3 for maximum mobile efficieny. Tests have been done to show
+Bootstraps flat design is much more suitable for underpowered mobile devices.
+The app is fully mobile tested.
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+4) Sign in is required to vote or submit posts, you'll be redirected if not signed 
+in.
