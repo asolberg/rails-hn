@@ -1,0 +1,120 @@
+@import "custom_bootstrap";
+
+$grayMediumLight: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: font-url('glyphiconshalflingsregular.eot');
+  src: font-url('glyphiconshalflingsregular.eot?#iefix') format('embedded-opentype'), font-url('glyphiconshalflingsregular.woff') format('woff'), font-url('glyphiconshalflingsregular.ttf') format('truetype'), font-url('glyphiconshalflingsregular.svg#glyphiconshalflingsregular') format('svg');
+}
+
+.glyphicon {
+  
+  font-size:8px;
+}
+
+ body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+
+.centered{
+  float: none;
+  margin: 0 auto;
+}
+
+.left{
+  float:left;
+}
+
+td.spacer {
+
+  width:20px;
+
+}
+
+tr > td
+{
+  padding-bottom: 1em;
+}
+
+textarea#id_comment 
+{
+  width:400px;
+  height:100px;
+}
+
+.btn-default:hover, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
+  color: #FF7528;
+  border-color: #FF7528;
+}
+
+.btn-default:focus{
+  background-color: #FFFFFF;
+
+}
+
+.btn-default.vote-down-on, .btn-default.vote-up-on {
+  color: #FF7528;
+}
+
+div.footer{
+  margin-top:20px;
+}
+
+table.paginated td{
+  width:50%;
+
+}
+
+table.paginated {
+  width:60%;
+
+  margin:0 auto;
+
+}
+table.paginated td.right{
+  text-align:right;
+
+}
+#id_honeypot {
+  display: none;
+}
+
+#error_explanation {
+  color: #f00;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+}
+
+.alert-error {
+  @extend .alert-danger
+}
+
+.badge {
+  float: left;
+  margin-right: 10px;
+}

@@ -1,0 +1,107 @@
+<div class="col-md-12 centered">
+
+<table class="table table-striped table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Vote!</th>
+                    <th>Links</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <% @links.each do |link| %>
+                  <tr id="<%= link.id %>">
+                    <td style="text-align:center">
+                    <div>
+                      <form action="<%= link.user_votes_total==1 ? "/links/" + link.id.to_s + "/votes/0" : "/links/" + link.id.to_s + "/votes/2" %>" method="post">
+                      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+                    <button type="submit" id="<%= link.id %>" class="btn btn-default vote-up glyphicon glyphicon-chevron-up <%= link.user_votes_total==1 ? "vote-up-on" : "" %>">
+                    </button>
+                    </form>
+                  </div>
+                  <div>
+                        <form action="<%= link.user_votes_total==-1 ? "/links/" + link.id.to_s + "/votes/0" : "/links/" + link.id.to_s + "/votes/1" %>" method="post">
+                          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+                          <button type="submit" id="<%= link.id %>" class="btn btn-default vote-down glyphicon glyphicon-chevron-down <%= link.user_votes_total==-1 ? "vote-down-on" : "" %>">
+                          </button>
+                        </form>
+                  </div>
+                </td>
+                    <td style="vertical-align:middle;">
+                  <span class="badge"><%= link.votes_total %></span>
+                  <p><a href="<%= link.url %>"><%= link.title %> </a>- <%= link.description %></p></td>
+                  </tr>
+                  <% end %>
+                </tbody>
+              </table>
+
+                  <%= will_paginate %>
+
+
+
+
+<!-- <div class="row">
+          <div class="col-lg-4">
+              <ul class="list-group">
+              <% @links.each do |link| %>
+                <li class="list-group-item">
+                  
+                  <div style="float:left;margin-right: 20px;">
+                    <div>
+                      <form action="<%= link.user_votes_total==1 ? "/links/" + link.id.to_s + "/votes/0" : "/links/" + link.id.to_s + "/votes/2" %>" method="post">
+                      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+                    <button type="submit" id="<%= link.id %>" class="btn btn-default vote-up glyphicon glyphicon-chevron-up <%= link.user_votes_total==1 ? "vote-up-on" : "" %>">
+                    </button>
+                    </form>
+                  </div>
+                  <div>
+                        <form action="<%= link.user_votes_total==-1 ? "/links/" + link.id.to_s + "/votes/0" : "/links/" + link.id.to_s + "/votes/1" %>" method="post">
+                          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+                          <button type="submit" id="<%= link.id %>" class="btn btn-default vote-down glyphicon glyphicon-chevron-down <%= link.user_votes_total==-1 ? "vote-down-on" : "" %>">
+                          </button>
+                        </form>
+                  </div>
+                </div>
+                <span class="badge"><%= link.votes_total %></span>
+                  <%= link.title %>
+
+                  <p><%= link.description %></p>
+                
+
+                </li>
+                <% end %>
+
+              </ul>
+          </div> -->
+
+
+  <!-- <table>
+    <% @links.each do |link| %>
+    <tr id="<%= link.id %>">
+      <td align="center">
+        <form action="<%= link.user_votes_total==1 ? "/links/" + link.id.to_s + "/votes/0" : "/links/" + link.id.to_s + "/votes/2" %>" method="post">
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+          <button type="submit" id="<%= link.id %>" class="btn btn-default vote-up glyphicon glyphicon-chevron-up <%= link.user_votes_total==1 ? "vote-up-on" : "" %>">
+          </button>
+        </form>
+
+        <h5> <%= link.votes_total %> </h5>
+        <form action="<%= link.user_votes_total==-1 ? "/links/" + link.id.to_s + "/votes/0" : "/links/" + link.id.to_s + "/votes/1" %>" method="post">
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+          <button type="submit" id="<%= link.id %>" class="btn btn-default vote-down glyphicon glyphicon-chevron-down <%= link.user_votes_total==-1 ? "vote-down-on" : "" %>">
+          </button>
+        </form>
+      </td>
+      <td class="spacer">
+        &nbsp;
+      </td>
+      <td>
+        <a href="<%= link.url %>"><h4><%= link.title %></h4></a>
+        <br />
+        <p><%= link.description %>    </p>  
+      </td>
+    </tr>
+    <% end %>
+  </table> -->
+
+
+</div>

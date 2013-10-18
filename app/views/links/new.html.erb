@@ -1,0 +1,23 @@
+<%= provide(:title, "New Link") %>
+<h1>New Link</h1>
+<%= form_for @link do |f| %>
+        <div class="form-group">
+            <%= render 'shared/link_error_messages', object: @user %>
+            <%= f.label :title, class: "control-label" %>
+             <%= f.text_field :title, class: "form-control"%> 
+        </div>
+
+        <div class="form-group">
+            <%= f.label :url, class: "control-label" %>
+            <%= f.text_field :url, class: "form-control"%>
+        </div>
+
+        <div class="form-group">
+            <%= f.label :description, class: "control-label" %> 
+            <%= f.text_area :description, rows: "3", class: "form-control" %>
+       </div>
+
+        <div class="form-group">
+      <%= f.submit "Create", class: "btn btn-large btn-primary" %>
+    </div>
+<% end %>
