@@ -1,9 +1,14 @@
 RailsHn::Application.routes.draw do
   
+
   root to: 'links#index'
 
-  resources :users
+  resources :users do
+    resources :comments
+  end
+
   resources :links do
+    resources :comments
     resources :votes do
       post :update, on: :member
     end

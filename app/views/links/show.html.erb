@@ -1,1 +1,7 @@
-<%= @link.title %>
+<div class="col-md-12 centered">
+
+    <h1><%= link_to @link.title %></h1>
+    <p><%= @link.description %></p>
+
+    <%= render "comments/comment_index" %>
+    <%= render "comments/comment_form" %>

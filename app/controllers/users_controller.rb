@@ -6,6 +6,9 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
+        @commentable = @link
+      @comments = @commentable.comments
+      @comment = Comment.new
     end
 
     def create

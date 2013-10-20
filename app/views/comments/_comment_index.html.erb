@@ -1,0 +1,10 @@
+<h4>Comments</h2>
+<div id="comments" class="well">
+<% @comments.each do |comment| %>
+<div class = "comment">
+    <%= comment.content %> -- <b><%= link_to comment.user.name, comment.user %> </b> <span class="comment-date"> <%= comment.created_at.strftime("%d %b. %Y") %> at <%= comment.created_at.strftime("%H:%M") %></span>
+</div>
+<% end %>
+
+
+</div>
